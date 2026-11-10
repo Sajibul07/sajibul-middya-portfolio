@@ -1,0 +1,173 @@
+/* =========================================================
+   CERTIFICATION PAGE (style.css ke tokens/components use karta hai)
+   ========================================================= */
+.cert-page {
+  padding-top: 3rem;
+}
+.back-btn {
+  margin-bottom: 1.5rem;
+}
+.cert-page h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Certificate card ---------- */
+.cert {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.cert:hover {
+  box-shadow: var(--raised-sm);
+}
+
+/* Frame: certificate ki image ka pressed (inset) frame */
+.cert-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* frame ka shape. 16/10 ya 1/1 karke badal sakte ho */
+  padding: 0.75rem;
+  border: 0;
+  cursor: zoom-in;
+  overflow: hidden;
+  color: var(--accent);
+}
+.cert-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* poora certificate dikhega, kategega nahi */
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.cert-frame:hover img {
+  transform: scale(1.03);
+}
+.cert-zoom {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: var(--raised-sm);
+}
+
+/* Image na mile (galat path) to ye placeholder dikhega */
+.cert-frame.missing {
+  cursor: default;
+}
+.cert-frame.missing img,
+.cert-frame.missing .cert-zoom {
+  display: none;
+}
+.cert-frame.missing::after {
+  content: "Certificate image yahan aayegi";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* ---------- Text ---------- */
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+.cert-body h3 {
+  font-size: 1.15rem;
+}
+.cert-issuer {
+  color: var(--muted);
+}
+.cert-issuer strong {
+  color: var(--accent);
+}
+.cert-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.cert-body .links {
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+/* ---------- Lightbox (bada image popup) ---------- */
+.lightbox {
+  margin: auto;
+  padding: 1rem;
+  width: min(900px, 100%);
+  max-width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+.lightbox::backdrop {
+  background: rgba(20, 24, 32, 0.7);
+  backdrop-filter: blur(3px);
+}
+.lightbox[open] {
+  animation: lb-pop 0.25s ease;
+}
+@keyframes lb-pop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+.lb-box {
+  position: relative;
+  padding: 3.5rem 1.25rem 1.25rem;
+  text-align: center;
+}
+.lb-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.lb-box img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+.lb-caption {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+body:has(dialog[open]) {
+  overflow: hidden; /* popup khule to peeche page scroll na ho */
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+  .cert-page {
+    padding-top: 2rem;
+  }
+  .cert-body .links .btn {
+    flex: 1 1 100%; /* phone par buttons full width */
+  }
+  .lb-box {
+    padding: 3.25rem 0.75rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open] {
+    animation: none;
+  }
+  .cert-frame img {
+    transition: none;
+  }
+}
