@@ -12,10 +12,15 @@
     <meta name="theme-color" content="#e0e5ec">
 
     <!-- Favicon (404 kisi bhi URL par khul sakta hai, isliye paths "/" se shuru hote hain) -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/favicon/404-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/404-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon/404-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/404-favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/favicon/404-favicon/site.webmanifest" />
+    <link rel="shortcut icon" sizes="web-app-manifest-512x512"
+        href="assets/favicon/404-favicon/web-app-manifest-512x512.png" type="image/x-icon">
+    <link rel="shortcut icon" sizes="web-app-manifest-192x192"
+        href="assets/favicon/404-favicon/web-app-manifest-192x192.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +39,8 @@
     </script>
 
     <!-- Main site ki CSS + 404 ki extra CSS -->
-    <link rel="stylesheet" href="/public/css/index.css">
-    <link rel="stylesheet" href="/public/css/404.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/404.css">
 </head>
 
 <body>
@@ -44,15 +49,15 @@
     <header class="header">
         <nav class="nav container" aria-label="Main navigation">
             <a href="/" class="logo" aria-label="Website Home">
-                <img class="logo-light" src="/public/assets/img/logo-light.png" alt="Website Logo">
-                <img class="logo-dark" src="/public/assets/img/logo-dark.png" alt="" aria-hidden="true">
+                <img class="logo-light" src="assets/img/logo-light.png" alt="Website Logo">
+                <img class="logo-dark" src="assets/img/logo-dark.png" alt="" aria-hidden="true">
             </a>
 
             <ul class="menu" id="menu">
-                <li><a href="/#home">Home</a></li>
-                <li><a href="/#project">Project</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#contact">Contact</a></li>
+                <li><a href="https://sajibul07.github.io/sajibul-middya-portfolio/">Home</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="actions">
@@ -145,7 +150,7 @@
         </div>
     </footer>
 
-    <script src="/public/js/404.js" defer></script>
+    <script src="js/404.js" defer></script>
 </body>
 
 </html>
