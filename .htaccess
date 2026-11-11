@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Agar file ya folder exist karta hai to open hone do
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Multi-level URL support (.html hide)
+RewriteRule ^(.+)$ $1.html [L]
+
+# 404 page
+ErrorDocument 404 /404.html
